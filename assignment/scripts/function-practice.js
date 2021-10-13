@@ -66,7 +66,7 @@ function getLast( array ) {
 
 }
 
-let newArray = [1,2,3,4,5,6];
+let newArray = [0,1,2,3,-4,-5,6,10];
 console.log(getLast(newArray));
 
 // 7. Function to find a value in an array. Return true if the
@@ -102,24 +102,54 @@ console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+function sumAll( array ) {
   let sum = 0
   // TODO: loop to add items
-
-  
-
-
-
-
+  for ( let i in array ) {
+    sum = sum + array[i];
+  }
   return sum;
 }
+
+console.log(sumAll(newArray));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 
+function returnPositiveNumbers( array ) {
+  let positiveArray = [];
+  for ( let i in array ) {
+    if ( array[i] > 0 ) {
+      positiveArray.push(array[i]);
+    }
+  }
+  if (positiveArray.length > 0 ) {
+    return positiveArray;
+  } else {
+    return;
+  }
+}
 
+console.log(returnPositiveNumbers(newArray));
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or
 //     CodeWars(https://www.codewars.com/). Then describe it
 //     here in a comment, write the function, and test it!
+
+// Here is the challenge I attempted:
+// https://edabit.com/challenge/hPWnaSckJke5FXNEH
+// I couldn't get the thing to work on edabit, but I don't understand why.
+
+// Write a funtion that checks the current date, and returns true if it's Xmas Eve
+function timeForMilkAndCookies(date) {
+  if ( date >= new Date( 2020, 11, 24)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Test Function
+let newDate = new Date( 2020, 11, 24 );
+console.log(timeForMilkAndCookies(newDate));
